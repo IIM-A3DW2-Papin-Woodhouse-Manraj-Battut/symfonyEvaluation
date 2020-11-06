@@ -15,7 +15,7 @@ class CategorieType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, ['attr' => ['class' => "p-2 bg-gray-200 rounded border-solid border-2 border-gray-400"]])
-            ->add('Ajouter', SubmitType::class, array('attr' => array('class' => 'ml-6 p-2 px-5 bg-gray-200 rounded hover:bg-gray-400')))
+            ->add('Ajouter', SubmitType::class, array('attr' => array('class' => 'ml-6 mb-5 p-2 px-5 bg-gray-200 rounded hover:bg-gray-400')))
         ;
     }
 
