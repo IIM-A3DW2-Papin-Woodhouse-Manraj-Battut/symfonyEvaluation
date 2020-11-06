@@ -3,5 +3,14 @@
 {% block title %}Hello CategorieController!{% endblock %}
 
 {% block body %}
-
+        {% for categorie in categories %}
+                <h1>Liste des catégories</h1>
+                <ul>
+                        <li>{{ categorie.nom }}</li>
+                </ul>
+        {% else %}
+        <h1>Aucune catégorie</h1>
+        {% endfor %}
+        <hr>
+        {{ form(ajoutCategorie) }}
 {% endblock %}
