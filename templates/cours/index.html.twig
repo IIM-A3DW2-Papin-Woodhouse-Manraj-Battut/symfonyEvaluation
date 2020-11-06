@@ -6,25 +6,28 @@
 {% block body %}
 	<div class="container w-full max-w-xs">
 		<h1 class="p-6 text-xl font-bold">Liste des cours</h1>
-		{% for item in cours %}
-			<div class="max-w-sm rounded overflow-hidden shadow-lg">
-				<div class="px-6 py-4">
-					<a href="{{ path('showCours', {'id': item.id}) }}">
-						<h3 class="font-bold text-xl mb-2">{{ item.nom }}</h3>
-					</a>
-					<ul>
-						<li>
-							<p class="text-gray-700 text-base">{{ item.description }}</p>
-						</li>
-					</ul>
-				</div>
-				<div class="px-6 pt-4 pb-2">
-					<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ item.categorie.nom }}</span>
-				</div>
-			</div>
-		{% else %}
-			<h1 class="p-6 text-xl font-bold">Aucun cours</h1>
-		{% endfor %}
+        <div class="flex w-screen p-5">
+            {% for item in cours %}
+                <div class="max-w-sm m-5 rounded overflow-hidden shadow-lg">
+                    <div class="px-6 py-4">
+                        <a href="{{ path('showCours', {'id': item.id}) }}">
+                            <h3 class="font-bold text-xl mb-2">{{ item.nom }}</h3>
+                        </a>
+                        <ul>
+                            <li>
+                                <p class="text-gray-700 text-base">{{ item.description }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ item.categorie.nom }}</span>
+                    </div>
+                </div>
+            {% else %}
+                <h1 class="p-6 text-xl font-bold">Aucun cours</h1>
+            {% endfor %}
+        </div>
+		
 
 		<hr>
 		<h2 class="p-6 text-xl font-bold">Ajouter un cours</h2>
