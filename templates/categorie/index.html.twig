@@ -8,13 +8,15 @@
 		{% for categorie in categories %}
 			<h1 class="p-6 text-xl font-bold">Liste des catégories</h1>
 			<ul class="p-2 ml-6 shadow-md">
-                                <a href="{{ path('showCategorie', {id: categorie.id}) }}"><li class="p-2 bg-gray-200">{{ categorie.nom }}</li></a>
+				<a href="{{ path('showCategorie', {id: categorie.id}) }}">
+					<li class="p-2 bg-gray-200">{{ categorie.nom }}</li>
+				</a>
 			</ul>
 		{% else %}
-			<h1>Aucune catégorie</h1>
+			<h1 class="p-6 text-xl font-bold">Aucune catégorie</h1>
 		{% endfor %}
 		<hr>
-		<h2>Ajouter une categorie</h2>
+		<h2 class="p-6 text-xl font-bold">Ajouter une categorie</h2>
 		{{ form_start(ajoutCategorie) }}
 		<div class="row bg-red-500">
 			<h3 class="text-3xl">{{ form_row(ajoutCategorie.nom) }}</h3>
