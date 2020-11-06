@@ -8,7 +8,7 @@
 		{% for categorie in categories %}
 			<h1 class="p-6 text-xl font-bold">Liste des catégories</h1>
 			<ul class="p-2 ml-6 shadow-md">
-				<li class="p-2 bg-gray-200 ">{{ categorie.nom }}</li>
+                                <a href="{{ path('showCategorie', {id: categorie.id}) }}"><li class="p-2 bg-gray-200">{{ categorie.nom }}</li></a>
 			</ul>
 		{% else %}
 			<h1>Aucune catégorie</h1>

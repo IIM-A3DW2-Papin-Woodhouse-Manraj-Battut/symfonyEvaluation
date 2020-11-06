@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des cours dans la catégorie : {{ categorie.nom }}</h1>
+
+    {% for item in cours %}
+        <a href="{{ path('showCours', {'id': item.id}) }}"><h3>{{ item.nom }}</h3></a>
+        <ul>
+            <li>{{ item.categorie.nom }}</li>
+            <li>{{ item.description }}</li>
+        </ul>
+    {% else %}
+        <h2>Il n'y a aucun cours dans cette catégorie</h2>
+    {% endfor %}
+
+{% endblock %}
