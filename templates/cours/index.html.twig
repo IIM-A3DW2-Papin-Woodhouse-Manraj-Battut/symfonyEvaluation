@@ -5,8 +5,9 @@
 
 {% block body %}
 	<div class="container w-full max-w-xs">
+		<h1 class="p-6 text-xl font-bold">Liste des cours</h1>
 		{% for item in cours %}
-			<h1 class="p-6 text-xl font-bold">Liste des cours</h1>
+
 			<a href="{{ path('showCours', {'id': item.id}) }}">
 				<h3>{{ item.nom }}</h3>
 			</a>
