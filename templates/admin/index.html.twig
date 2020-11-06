@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <h1>Tableau de bord</h1>
+
+    <h2>Liste des cours</h2>
+    {% for item in cours %}
+        <h3>{{ item.nom }}</h3>
+        <ul>
+            <li>{{ item.categorie.nom }}</li>
+            <li>{{ item.description }}</li>
+            <li>{{ item.date|date('d/m/Y') }}</li>
+            <a href="#">Supprimer</a>
+            <a href="#">Modifier</a>
+        </ul>
+    {% endfor %}
+
+    <hr>
+
+    <h2>Listes des catégories</h2>
+    {% for categorie in categories %}
+        <h3>{{ categorie.nom }}</h3>
+        <a href="#">Supprimer</a>
+        <a href="#">Modifier</a>
+    {% endfor %}
+{% endblock %}
