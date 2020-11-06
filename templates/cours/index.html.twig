@@ -5,9 +5,11 @@
 {% block body %}
     {% for item in cours %}
         <h1>Liste des cours</h1>
-        <ul>
-            <li>{{ item.nom }}</li>
-        </ul>
+        <a href="{{ path('showCours', {'id': item.id}) }}"><h3>{{ item.nom }}</h3></a>
+            <ul>
+                <li>{{ item.categorie.nom }}</li>
+                <li>{{ item.description }}</li>
+            </ul>
     {% else %}
         <h1>Aucun cours</h1>
     {% endfor %}
