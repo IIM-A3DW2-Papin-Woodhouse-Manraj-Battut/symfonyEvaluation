@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function Sodium\add;
 
 class CoursController extends AbstractController
 {
@@ -34,5 +35,21 @@ class CoursController extends AbstractController
             'cours' => $listCours,
             'ajoutCours' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/cours/{id}", name="showCours")
+     */
+
+    public function showCours(Cours $cours = null){
+        if($cours == null){
+            $this->addFlash('error', "Cours introuvable");
+            $this->redirectToRoute('cours');
+        }
+
+        return $this->render('cours/showCours.html.twig', [
+            'cours' => $cours
+        ]);
+
     }
 }
