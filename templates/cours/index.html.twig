@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CoursController!{% endblock %}
+
+{% block body %}
+    {% for item in cours %}
+        <h1>Liste des cours</h1>
+        <ul>
+            <li>{{ item.nom }}</li>
+        </ul>
+    {% else %}
+        <h1>Aucun cours</h1>
+    {% endfor %}
+
+    <hr>
+    <h2>Ajouter un cours</h2>
+    {{ form(ajoutCours) }}
+{% endblock %}
