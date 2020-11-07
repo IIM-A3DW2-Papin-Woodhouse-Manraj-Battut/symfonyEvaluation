@@ -12,8 +12,12 @@
             <ul class="flex">
                 <li class="mr-6"><a href="{{ path('categorie') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Catégorie</a> </li>
                 <li class="mr-6"><a href="{{ path('cours') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Cours</a> </li>
-                <li class="mr-6"><a href="{{ path('admin') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Admin</a> </li>
-                <li class="mr-6"><a href="login" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Se connecter</a> </li>
+                {% if is_granted("ROLE_USER") %}
+                    <li class="mr-6"><a href="{{ path('admin') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Admin</a> </li>
+                {% else %}
+                    <li class="mr-6"><a href="login" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Se connecter</a> </li>
+                    <li class="mr-6"><a href="register" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Créer un compte</a> </li>
+                {% endif %}
             </ul>
         </nav>
         {% for type, messages in app.flashes %}

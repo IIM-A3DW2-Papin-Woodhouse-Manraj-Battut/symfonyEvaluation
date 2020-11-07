@@ -59,6 +59,8 @@
                 <li class="p-2 hover:bg-gray-200">{{ categorie.nom }}</li>
                 <li class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     <a href="{{ path("modifierCategorie", {id: categorie.id}) }}">Modifier </a>
+                </li>
+                <li class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     <a href="{{ path("supprimerCategorie", {id: categorie.id}) }}">Supprimer</a>
                 </li>
             </a>
