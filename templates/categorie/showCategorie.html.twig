@@ -1,16 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Liste des cours dans la catégorie : {{ categorie.nom }}</h1>
+	<div class="container w-full p-24 px-48 pb-24">
+		<h1 class="text-3xl font-bold">Liste des cours dans la catégorie :
+			{{ categorie.nom }}
+		</h1>
 
-    {% for item in cours %}
-        <a href="{{ path('showCours', {'id': item.id}) }}"><h3>{{ item.nom }}</h3></a>
-        <ul>
-            <li>{{ item.categorie.nom }}</li>
-            <li>{{ item.description }}</li>
-        </ul>
-    {% else %}
-        <h2>Il n'y a aucun cours dans cette catégorie</h2>
-    {% endfor %}
+		{% for item in cours %}
+			<div class="p-2 my-10 shadow-md w-48 hover:bg-gray-200">
+				<a href="{{ path('showCours', {'id': item.id}) }}">
+					<h3>{{ item.nom }}</h3>
+				</a>
+			</div>
+
+			<ul>
+				<li>{{ item.categorie.nom }}</li>
+				<li>{{ item.description }}</li>
+			</ul>
+		{% else %}
+			<h2>Il n'y a aucun cours dans cette catégorie</h2>
+		{% endfor %}
+	</div>
+
 
 {% endblock %}
