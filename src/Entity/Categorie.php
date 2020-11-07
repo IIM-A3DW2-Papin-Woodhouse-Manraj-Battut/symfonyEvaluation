@@ -7,8 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
  * @ORM\Entity(repositoryClass=CategorieRepository::class)
+ *  @UniqueEntity("nom")
  */
 class Categorie
 {
@@ -20,7 +24,8 @@ class Categorie
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="nom", unique="true")
+     * @Assert\NotBlank
      */
     private $nom;
 

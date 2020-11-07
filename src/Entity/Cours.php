@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CoursRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CoursRepository::class)
@@ -19,6 +20,7 @@ class Cours
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
@@ -29,11 +31,13 @@ class Cours
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $contenu;
 
