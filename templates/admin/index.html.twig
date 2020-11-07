@@ -3,26 +3,62 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-    <h1>Tableau de bord</h1>
+<div class="container w-full max-w-xs mb-24">
+    <h1 class="p-6 text-xl font-bold">Tableau de bord</h1>
 
-    <h2>Liste des cours</h2>
-    {% for item in cours %}
-        <h3>{{ item.nom }}</h3>
-        <ul>
-            <li>{{ item.categorie.nom }}</li>
-            <li>{{ item.description }}</li>
-            <li>{{ item.date|date('d/m/Y') }}</li>
-            <a href="#">Supprimer</a>
-            <a href="#">Modifier</a>
-        </ul>
-    {% endfor %}
+    <h2 class="p-6 text-xl font-bold">Liste des cours - {{ cours|length }} </h2>
+    <div class="flex w-screen p-5">
+        {% for item in cours %}
+            <div class="max-w-sm m-5 rounded overflow-hidden shadow-lg transition duration-150 ease-in-out hover:bg-gray-200">
+                <div class="px-6 py-4">
+                    <a href="{{ path('showCours', {'id': item.id}) }}" class="flex items-center justify-between">
+                        <h3 class="font-bold text-xl mb-2 hover:text-orange-400">{{ item.nom }}</h3>
+                        <ion-icon name="arrow-redo-circle-outline" class="text-3xl hover:text-orange-400"></ion-icon>
+                    </a>
+                    <ul>
+                        <li>
+                            <p class="text-gray-700 text-base">{{ item.description }}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    {% if item.categorie == NULL %}
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            Aucune catégorie
+                        </span>
+                    {% else %}
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            {{ item.categorie }}
+                        </span>
+                    {% endif %}
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                        <a href="{{ path("modifierCours", {id: item.id}) }}">Modifier</a>
+                    </span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                        <a href="{{ path("supprimerCours", {id: item.id}) }}">Supprimer</a>
+                    </span>
+                </div>
+            </div>
+        {% else %}
+            <h1 class="p-6 text-xl font-bold">Aucun cours</h1>
+        {% endfor %}
+    </div>
 
     <hr>
 
-    <h2>Listes des catégories</h2>
-    {% for categorie in categories %}
-        <h3>{{ categorie.nom }}</h3>
-        <a href="#">Supprimer</a>
-        <a href="#">Modifier</a>
-    {% endfor %}
+    <h2 class="p-6 text-xl font-bold">Liste des catégories - {{ categories|length }}</h2>
+    <ul class="p-2 ml-6 shadow-md">
+        {% for categorie in categories %}
+            <a href="{{ path('showCategorie', {id: categorie.id}) }}">
+                <li class="p-2 hover:bg-gray-200">{{ categorie.nom }}</li>
+                <li class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <a href="{{ path("modifierCategorie", {id: categorie.id}) }}">Modifier </a>
+                    <a href="{{ path("supprimerCategorie", {id: categorie.id}) }}">Supprimer</a>
+                </li>
+            </a>
+        {% else %}
+            <h1 class="p-6 text-xl font-bold">Aucune catégorie</h1>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

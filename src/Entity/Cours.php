@@ -39,6 +39,7 @@ class Cours
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="cours")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $categorie;
 

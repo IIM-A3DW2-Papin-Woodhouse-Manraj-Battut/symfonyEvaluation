@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container w-full p-24 px-48 pb-24">
+        <h1 class="text-3xl font-bold">Modifier : {{ categorie.nom }}</h1>
+
+        {{ form(modifierCategorie) }}
+    </div>
+
+{% endblock %}
