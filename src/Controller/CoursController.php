@@ -20,20 +20,8 @@ class CoursController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $listCours = $em->getRepository(Cours::class)->findAll();
 
-        $cours = new Cours();
-        $form = $this->createForm(CoursType::class, $cours);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
-            $em->persist($cours);
-            $em->flush();
-
-            $this->addFlash('success', 'Cours ajouté');
-        }
-
-
         return $this->render('cours/index.html.twig', [
             'cours' => $listCours,
-            'ajoutCours' => $form->createView()
         ]);
     }
 

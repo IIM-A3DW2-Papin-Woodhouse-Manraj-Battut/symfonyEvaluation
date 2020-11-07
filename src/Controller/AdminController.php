@@ -29,6 +29,27 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/admin/ajouterCours", name="ajouterCours")
+     */
+
+    public function ajouterCours(Request $request){
+        $cours = new Cours();
+        $form = $this->createForm(CoursType::class, $cours);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cours);
+            $em->flush();
+
+            $this->addFlash('success', 'Categorie ajoutée');
+        }
+
+        return $this->render("/admin/ajouterCours.html.twig", [
+            "ajoutCours" => $form->createView()
+        ]);
+    }
+
+    /**
      * @Route("/admin/modifierCours/{id}", name="modifierCours")
      */
 
@@ -70,6 +91,27 @@ class AdminController extends AbstractController
 
         $this->addFlash('success', "Cours supprimé");
         return $this->redirectToRoute("admin");
+    }
+
+    /**
+     * @Route("/admin/ajouterCategorie", name="ajouterCategorie")
+     */
+
+    public function ajouterCategorie(Request $request){
+        $categorie = new Categorie();
+        $form = $this->createForm(CategorieType::class, $categorie);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($categorie);
+            $em->flush();
+
+            $this->addFlash('success', 'Categorie ajoutée');
+        }
+
+        return $this->render("/admin/ajouterCategorie.html.twig", [
+            "ajoutCategorie" => $form->createView()
+        ]);
     }
 
     /**
@@ -116,4 +158,6 @@ class AdminController extends AbstractController
         $this->addFlash('success', "Catégorie supprimée");
         return $this->redirectToRoute("admin");
     }
+
+
 }

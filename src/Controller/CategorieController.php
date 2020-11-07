@@ -20,19 +20,8 @@ class CategorieController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository(Categorie::class)->findAll();
 
-        $categorie = new Categorie();
-        $form = $this->createForm(CategorieType::class, $categorie);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
-            $em->persist($categorie);
-            $em->flush();
-
-            $this->addFlash('success', 'Categorie ajoutée');
-        }
-
         return $this->render('categorie/index.html.twig', [
             'categories' => $categories,
-            'ajoutCategorie' => $form->createView()
         ]);
     }
 

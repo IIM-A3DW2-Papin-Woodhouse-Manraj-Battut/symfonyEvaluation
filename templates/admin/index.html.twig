@@ -44,6 +44,12 @@
         {% endfor %}
     </div>
 
+    <div class="p-2 ml-6 shadow-md">
+        <a href="{{ path('ajouterCours') }}" class="p-6 text-xl font-bold">Ajouter un cours</a>
+    </div>
+
+    <br>
+
     <hr>
 
     <h2 class="p-6 text-xl font-bold">Liste des catégories - {{ categories|length }}</h2>
@@ -60,5 +66,9 @@
             <h1 class="p-6 text-xl font-bold">Aucune catégorie</h1>
         {% endfor %}
     </ul>
+
+    <div class="p-2 ml-6 shadow-md">
+        <a href="{{ path('ajouterCategorie') }}" class="p-6 text-xl font-bold">Ajouter une catégorie</a>
+    </div>
 </div>
 {% endblock %}

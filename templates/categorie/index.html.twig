@@ -15,16 +15,6 @@
 				<h1 class="p-6 text-xl font-bold">Aucune catégorie</h1>
 			{% endfor %}
 		</ul>
-		<hr>
-		<h2 class="p-6 text-xl font-bold">Ajouter une categorie</h2>
-		{{ form_start(ajoutCategorie) }}
-		<div class="ml-6 mb-5">
-			<h3 class="text-l mr-2">
-				{{ form_label(ajoutCategorie.nom) }}
-			</h3>
-			{{ form_widget(ajoutCategorie.nom) }}
-		</div>
-		{{ form_end(ajoutCategorie) }}
 	</div>
 
 {% endblock %}

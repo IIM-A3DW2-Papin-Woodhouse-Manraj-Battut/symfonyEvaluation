@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container w-full max-w-xs mb-24">
+        <h2 class="p-6 text-xl font-bold">Ajouter un cours</h2>
+        {{ form_start(ajoutCours) }}
+        <div class="ml-6 grid grid-flow-row auto-rows-max">
+            <h3 class="text-l mr-2">
+                {{ form_label(ajoutCours.nom) }}
+            </h3>
+            {{ form_widget(ajoutCours.nom) }}
+
+            <h3 class="text-l mr-2">
+                {{ form_label(ajoutCours.description) }}
+            </h3>
+            {{ form_widget(ajoutCours.description) }}
+
+            <h3 class="text-l mr-2">
+                {{ form_label(ajoutCours.contenu) }}
+            </h3>
+            {{ form_widget(ajoutCours.contenu) }}
+
+            <h3 class="text-l mr-2">
+                {{ form_label(ajoutCours.categorie) }}
+            </h3>
+            {{ form_widget(ajoutCours.categorie) }}
+        </div>
+
+        {{ form_end(ajoutCours) }}
+    </div>
+{% endblock %}
