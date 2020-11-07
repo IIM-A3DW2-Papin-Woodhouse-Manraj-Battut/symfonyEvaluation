@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container w-full p-24 px-48 pb-24">
-        <h1 class="text-3xl font-bold">Modifier : {{ categorie.nom }}</h1>
+        <h1 class="text-3xl font-bold">{{"general.modifier"|trans}} : {{ categorie.nom }}</h1>
 
         {{ form(modifierCategorie) }}
     </div>

@@ -24,7 +24,7 @@ class Categorie
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, name="nom", unique="true")
+     * @ORM\Column(type="string", length=255, name="nom")
      * @Assert\NotBlank
      */
     private $nom;

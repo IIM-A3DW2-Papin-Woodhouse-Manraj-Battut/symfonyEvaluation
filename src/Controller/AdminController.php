@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AdminController extends AbstractController
 {
@@ -32,7 +33,7 @@ class AdminController extends AbstractController
      * @Route("/admin/ajouterCours", name="ajouterCours")
      */
 
-    public function ajouterCours(Request $request){
+    public function ajouterCours(Request $request, TranslatorInterface $translator){
         $cours = new Cours();
         $form = $this->createForm(CoursType::class, $cours);
         $form->handleRequest($request);
@@ -41,7 +42,8 @@ class AdminController extends AbstractController
             $em->persist($cours);
             $em->flush();
 
-            $this->addFlash('success', 'Categorie ajoutée');
+
+            $this->addFlash('success', $translator->trans('cours.ajoute'));
         }
 
         return $this->render("/admin/ajouterCours.html.twig", [
@@ -53,7 +55,7 @@ class AdminController extends AbstractController
      * @Route("/admin/modifierCours/{id}", name="modifierCours")
      */
 
-    public function modifierCours(Cours $cours = null, Request $request){
+    public function modifierCours(Cours $cours = null, Request $request, TranslatorInterface $translator){
         if($cours == null){
             $this->addFlash('error', "Cours introuvable");
             $this->redirectToRoute('admin');
@@ -66,7 +68,7 @@ class AdminController extends AbstractController
             $em->persist($cours);
             $em->flush();
 
-            $this->addFlash('success', 'Cours modifié');
+            $this->addFlash('success', $translator->trans('cours.modifié'));
         }
 
         return $this->render('admin/modifierCours.html.twig', [
@@ -79,7 +81,7 @@ class AdminController extends AbstractController
      * @Route("/admin/supprimerCours/{id}", name="supprimerCours")
      */
 
-    public function supprimerCours(Cours $cours = null){
+    public function supprimerCours(Cours $cours = null, TranslatorInterface $translator){
         if($cours == null){
             $this->addFlash('error', "Cours introuvable");
             $this->redirectToRoute('admin');
@@ -89,7 +91,7 @@ class AdminController extends AbstractController
         $em->remove($cours);
         $em->flush();
 
-        $this->addFlash('success', "Cours supprimé");
+        $this->addFlash('success', $translator->trans('cours.suprimé'));
         return $this->redirectToRoute("admin");
     }
 
@@ -97,7 +99,7 @@ class AdminController extends AbstractController
      * @Route("/admin/ajouterCategorie", name="ajouterCategorie")
      */
 
-    public function ajouterCategorie(Request $request){
+    public function ajouterCategorie(Request $request, TranslatorInterface $translator){
         $categorie = new Categorie();
         $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
@@ -106,7 +108,7 @@ class AdminController extends AbstractController
             $em->persist($categorie);
             $em->flush();
 
-            $this->addFlash('success', 'Categorie ajoutée');
+            $this->addFlash('success', $translator->trans('categorie.ajoutee'));
         }
 
         return $this->render("/admin/ajouterCategorie.html.twig", [
@@ -118,7 +120,7 @@ class AdminController extends AbstractController
      * @Route("/admin/modifierCategorie/{id}", name="modifierCategorie")
      */
 
-    public function modifierCategorie(Categorie $categorie = null, Request $request){
+    public function modifierCategorie(Categorie $categorie = null, Request $request, TranslatorInterface $translator){
         if($categorie == null){
             $this->addFlash('error', "Catégorie introuvable");
             $this->redirectToRoute('admin');
@@ -131,7 +133,7 @@ class AdminController extends AbstractController
             $em->persist($categorie);
             $em->flush();
 
-            $this->addFlash('success', 'Categorie modifiée');
+            $this->addFlash('success', $translator->trans('categorie.modifiée'));
         }
 
         return $this->render('admin/modifierCategorie.html.twig', [
@@ -144,7 +146,7 @@ class AdminController extends AbstractController
      * @Route("/admin/supprimerCategorie/{id}", name="supprimerCategorie")
      */
 
-    public function supprimerCategorie(Categorie $categorie){
+    public function supprimerCategorie(Categorie $categorie, TranslatorInterface $translator){
         if ($categorie == null){
             $this->addFlash('error', "Categorie introuvable");
             return $this->redirectToRoute("admin");
@@ -155,7 +157,7 @@ class AdminController extends AbstractController
         $em->flush();
 
 
-        $this->addFlash('success', "Catégorie supprimée");
+        $this->addFlash('success', $translator->trans('categorie.supprimée'));
         return $this->redirectToRoute("admin");
     }
 

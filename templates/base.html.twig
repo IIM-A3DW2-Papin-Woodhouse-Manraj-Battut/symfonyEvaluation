@@ -10,13 +10,13 @@
     <body class="overflow-x-hidden">
         <nav class="flex items-center justify-between flex-wrap bg-orange-400 p-6">
             <ul class="flex">
-                <li class="mr-6"><a href="{{ path('categorie') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Catégorie</a> </li>
-                <li class="mr-6"><a href="{{ path('cours') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Cours</a> </li>
+                <li class="mr-6"><a href="{{ path('categorie') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">{{"categorie.nom"|trans}}</a> </li>
+                <li class="mr-6"><a href="{{ path('cours') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">{{ "cours.nom"|trans }}</a> </li>
                 {% if is_granted("ROLE_USER") %}
                     <li class="mr-6"><a href="{{ path('admin') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Admin</a> </li>
                 {% else %}
-                    <li class="mr-6"><a href="login" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Se connecter</a> </li>
-                    <li class="mr-6"><a href="register" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Créer un compte</a> </li>
+                    <li class="mr-6"><a href="login" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">{{"general.connexion"|trans}}</a> </li>
+                    <li class="mr-6"><a href="register" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">{{"general.créer"|trans}}</a> </li>
                 {% endif %}
             </ul>
         </nav>

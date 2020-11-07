@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container w-full p-24 px-48 pb-24">
-        <h1 class="text-3xl font-bold">Modifier : {{ cours.nom }}</h1>
+        <h1 class="text-3xl font-bold">{{"general.modifier"|trans}} : {{ cours.nom }}</h1>
 
         {{ form_start(modifierCours) }}
         <div class="ml-6 grid grid-flow-row auto-rows-max">

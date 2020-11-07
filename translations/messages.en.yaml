@@ -1,0 +1,27 @@
+categorie:
+  nom : Categories
+  liste: Categories list
+  ajoutee: Category added
+  aucune: No categories
+  supprimée: Category deleted
+  modifiée: Category modified
+  ajouter: Add category
+
+cours:
+  nom: Courses
+  liste: Courses list
+  ajoute: Course added
+  aucun: No courses
+  supprimé: Course deleted
+  modifié: Course modified
+  ajouter: Add course
+
+dashboard:
+  nom: Dashboard
+
+general:
+  modifier: Modify
+  ajouter: Add
+  supprimer: Delete
+  connexion: Log in
+  créer: Register

@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategorieController!
+{% block title %}{{"categorie.nom"|trans}}
 {% endblock %}
 
 {% block body %}
 	<div class="container w-full pb-25 max-w-xs">
-		<h1 class="p-6 text-xl font-bold">Liste des catégories</h1>
+		<h1 class="p-6 text-xl font-bold">{{'categorie.liste'|trans}}</h1>
 		<ul class="p-2 ml-6 shadow-md">
 			{% for categorie in categories %}
 				<a href="{{ path('showCategorie', {id: categorie.id}) }}">
 					<li class="p-2 hover:bg-gray-200">{{ categorie.nom }}</li>
 				</a>
 			{% else %}
-				<h1 class="p-6 text-xl font-bold">Aucune catégorie</h1>
+				<h1 class="p-6 text-xl font-bold">{{'categorie.aucune'|trans}}</h1>
 			{% endfor %}
 		</ul>
 	</div>

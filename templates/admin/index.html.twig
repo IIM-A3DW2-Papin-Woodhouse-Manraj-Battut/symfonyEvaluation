@@ -4,9 +4,9 @@
 
 {% block body %}
 <div class="container w-full max-w-xs mb-24">
-    <h1 class="p-6 text-xl font-bold">Tableau de bord</h1>
+    <h1 class="p-6 text-xl font-bold">{{"dashboard.nom"|trans}}</h1>
 
-    <h2 class="p-6 text-xl font-bold">Liste des cours - {{ cours|length }} </h2>
+    <h2 class="p-6 text-xl font-bold">{{"cours.liste"|trans}} - {{ cours|length }} </h2>
     <div class="flex w-screen p-5">
         {% for item in cours %}
             <div class="max-w-sm m-5 rounded overflow-hidden shadow-lg transition duration-150 ease-in-out hover:bg-gray-200">
@@ -24,7 +24,7 @@
                 <div class="px-6 pt-4 pb-2">
                     {% if item.categorie == NULL %}
                         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            Aucune catégorie
+                            {{"categorie.aucune"|trans}}
                         </span>
                     {% else %}
                         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -32,45 +32,45 @@
                         </span>
                     {% endif %}
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        <a href="{{ path("modifierCours", {id: item.id}) }}">Modifier</a>
+                        <a href="{{ path("modifierCours", {id: item.id}) }}">{{"general.modifier"|trans}}</a>
                     </span>
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        <a href="{{ path("supprimerCours", {id: item.id}) }}">Supprimer</a>
+                        <a href="{{ path("supprimerCours", {id: item.id}) }}">{{"general.supprimer"|trans}}</a>
                     </span>
                 </div>
             </div>
         {% else %}
-            <h1 class="p-6 text-xl font-bold">Aucun cours</h1>
+            <h1 class="p-6 text-xl font-bold">{{"cours.aucun"|trans}}</h1>
         {% endfor %}
     </div>
 
     <div class="p-2 ml-6 shadow-md">
-        <a href="{{ path('ajouterCours') }}" class="p-6 text-xl font-bold">Ajouter un cours</a>
+        <a href="{{ path('ajouterCours') }}" class="p-6 text-xl font-bold">{{"cours.ajouter"|trans}}</a>
     </div>
 
     <br>
 
     <hr>
 
-    <h2 class="p-6 text-xl font-bold">Liste des catégories - {{ categories|length }}</h2>
+    <h2 class="p-6 text-xl font-bold">{{"categorie.liste"|trans}} - {{ categories|length }}</h2>
     <ul class="p-2 ml-6 shadow-md">
         {% for categorie in categories %}
             <a href="{{ path('showCategorie', {id: categorie.id}) }}">
                 <li class="p-2 hover:bg-gray-200">{{ categorie.nom }}</li>
                 <li class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    <a href="{{ path("modifierCategorie", {id: categorie.id}) }}">Modifier </a>
+                    <a href="{{ path("modifierCategorie", {id: categorie.id}) }}">{{ "general.modifier"|trans}} </a>
                 </li>
                 <li class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    <a href="{{ path("supprimerCategorie", {id: categorie.id}) }}">Supprimer</a>
+                    <a href="{{ path("supprimerCategorie", {id: categorie.id}) }}">{{ "general.supprimer"|trans }}</a>
                 </li>
             </a>
         {% else %}
-            <h1 class="p-6 text-xl font-bold">Aucune catégorie</h1>
+            <h1 class="p-6 text-xl font-bold">{{"categorie.aucune"|trans}}</h1>
         {% endfor %}
     </ul>
 
     <div class="p-2 ml-6 shadow-md">
-        <a href="{{ path('ajouterCategorie') }}" class="p-6 text-xl font-bold">Ajouter une catégorie</a>
+        <a href="{{ path('ajouterCategorie') }}" class="p-6 text-xl font-bold">{{"categorie.ajouter"|trans}}</a>
     </div>
 </div>
 {% endblock %}

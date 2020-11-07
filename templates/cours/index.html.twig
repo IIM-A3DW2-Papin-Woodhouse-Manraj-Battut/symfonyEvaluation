@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CoursController!
+{% block title %}{{"cours.nom"|trans}}
 {% endblock %}
 
 {% block body %}
 	<div class="container w-full max-w-xs mb-24">
-		<h1 class="p-6 text-xl font-bold">Liste des cours</h1>
+		<h1 class="p-6 text-xl font-bold">{{"cours.liste"|trans}}</h1>
 		<div class="flex w-screen p-5">
 			{% for item in cours %}
 				<div class="max-w-sm m-5 rounded overflow-hidden shadow-lg transition duration-150 ease-in-out hover:bg-gray-200">
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 			{% else %}
-				<h1 class="p-6 text-xl font-bold">Aucun cours</h1>
+				<h1 class="p-6 text-xl font-bold">{{ "cours.aucun"|trans }}</h1>
 			{% endfor %}
 		</div>
 	</div>

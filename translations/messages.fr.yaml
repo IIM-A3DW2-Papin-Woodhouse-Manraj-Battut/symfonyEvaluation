@@ -1,0 +1,27 @@
+categorie:
+  nom : Catégories
+  liste: Liste des catégories
+  ajoutee: Catégorie ajoutée
+  aucune: Aucune catégorie
+  supprimée: Catégorie supprimée
+  modifiée: Catégorie modifiée
+  ajouter: Ajouter une catégorie
+
+cours:
+  nom: Cours
+  liste: Liste des cours
+  ajoute: Cours ajouté
+  aucun: Aucun cours
+  supprimé: Cours supprimé
+  modifié: Cours modifié
+  adjouter: Ajouter un cours
+
+dashboard:
+  nom: Tableau de bord
+
+general:
+  modifier: Modifier
+  ajouter: Ajouter
+  supprimer: Supprimer
+  connexion: Se connecter
+  créer: Créer un compte
